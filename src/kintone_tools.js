@@ -168,3 +168,13 @@ kintoneTools.getQueryToObject = function(strParam){
 }; // end getQueryToObject
 
 
+// #############################################
+// Add repeat method to String Class for IE
+// #############################################
+if (!String.prototype.repeat) {
+    String.prototype.repeat = function(len) {
+        return Array(len + 1).join(this);
+    };
+}
+
+

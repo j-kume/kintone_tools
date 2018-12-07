@@ -64,7 +64,9 @@ kintoneTools.createRecordTitle = function (record, fields) {
     var retStr = '';
 
     fields.forEach(function(val) {
-        retStr += (record[val].value + ' ');
+        if (record[val].value) {
+            retStr += (record[val].value + ' ');
+        }
     });
     retStr = retStr.slice(0, -1);
     return retStr;

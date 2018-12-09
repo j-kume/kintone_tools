@@ -71,7 +71,7 @@ KintoneTools.setRecordTitle = function (record, fields) {
 };  // end setRecordTitle
 
 // =============================================
-// 画面情報にlookupKeyをセット
+// 画面情報にlookup_Keyをセット
 // ---------------------------------------------
 // Required Field : lookup_key
 // =============================================
@@ -147,7 +147,6 @@ KintoneTools.rounding = function(num, type, digit){
     return ret;
 }; // end rounding
 
-
 // =============================================
 // クエリパラメータから値取得
 // =============================================
@@ -170,5 +169,4 @@ if (!String.prototype.repeat) {
         return Array(len + 1).join(this);
     };
 }
-
 

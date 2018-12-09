@@ -41,6 +41,8 @@ KintoneTools.createZeroFillNextValue = function (records, field, len) {
 
 // =============================================
 // 次のuid生成
+// ---------------------------------------------
+// Required Field : uid
 // =============================================
 KintoneTools.createNextUid = function (records) {
     let nextUid = 1;
@@ -52,6 +54,8 @@ KintoneTools.createNextUid = function (records) {
 
 // =============================================
 // 画面情報に次のuidをセットする
+// ---------------------------------------------
+// Required Field : uid
 // =============================================
 KintoneTools.setNextUid = function (record, records) {
     record.uid.value = KintoneTools.createNextUid(records);
@@ -59,6 +63,8 @@ KintoneTools.setNextUid = function (record, records) {
 
 // =============================================
 // 画面情報にレコードタイトルをセット
+// ---------------------------------------------
+// Required Field : record_title
 // =============================================
 KintoneTools.setRecordTitle = function (record, fields) {
     record.record_title.value = KintoneTools.joinFieldValue(record, fields);
@@ -66,6 +72,8 @@ KintoneTools.setRecordTitle = function (record, fields) {
 
 // =============================================
 // 画面情報にlookupKeyをセット
+// ---------------------------------------------
+// Required Field : lookup_key
 // =============================================
 KintoneTools.setLookupKey = function (record, fields) {
     record.lookup_key.value = KintoneTools.joinFieldValue(record, fields);

@@ -7,7 +7,7 @@
 //  Copyright (c) 2018 kintone lovers
 //=============================================================================
 
-var KintoneTools = KintoneTools || {};
+const KintoneTools = KintoneTools || {};
 
 // =============================================
 // 定数
@@ -32,7 +32,7 @@ KintoneTools.createUniqNumber = function () {
 // カウントアップ＆ゼロ埋めした値の生成
 // =============================================
 KintoneTools.createZeroFillNextValue = function (records, field, len) {
-    var nextVal = 1;
+    let nextVal = 1;
     if (records.length !== 0) {
         nextVal = Number(records[0][field].value) + 1;
     }
@@ -43,7 +43,7 @@ KintoneTools.createZeroFillNextValue = function (records, field, len) {
 // 次のuid生成
 // =============================================
 KintoneTools.createNextUid = function (records) {
-    var nextUid = 1;
+    let nextUid = 1;
     if (records.length !== 0) {
         nextUid = Number(records[0].uid.value) + 1;
     }
@@ -61,7 +61,7 @@ KintoneTools.setNextUid = function (record, records) {
 // レコードタイトル生成
 // =============================================
 KintoneTools.createRecordTitle = function (record, fields) {
-    var retStr = '';
+    let retStr = '';
 
     fields.forEach(function(val) {
         if (record[val].value) {
@@ -83,7 +83,7 @@ KintoneTools.setRecordTitle = function (record, fields) {
 // lookupKey生成
 // =============================================
 KintoneTools.createLookupKey = function (record, fields) {
-    var retStr = '';
+    let retStr = '';
 
     fields.forEach(function(val) {
         if (record[val].value) {
@@ -115,8 +115,8 @@ KintoneTools.commaSeparate = function(num){
 // 「0」でパディングする
 // =============================================
 KintoneTools.padding = function(num, len, fillStr){
-    var str = fillStr || '0';
-    var base = str.repeat(len);
+    let str = fillStr || '0';
+    let base = str.repeat(len);
     return (base + num).slice(-1 * len);
 }; // end padding
 
@@ -131,7 +131,7 @@ KintoneTools.rounding = function(num, type, digit){
     
     digit = digit * -1 || 0;
 
-    var ret = num * Math.pow(10, digit);
+    let ret = num * Math.pow(10, digit);
         
     switch (type) {
         case KintoneTools.const.round.round:
@@ -158,10 +158,10 @@ KintoneTools.rounding = function(num, type, digit){
 // クエリパラメータから値取得
 // =============================================
 KintoneTools.getQueryToObject = function(strParam){
-    var objRet = {};
-    var aryParams = strParam.split('&');
+    let objRet = {};
+    let aryParams = strParam.split('&');
     aryParams.forEach(function(val){
-        var aryTmp = val.split('=');
+        let aryTmp = val.split('=');
         objRet[aryTmp[0]] = aryTmp[1];
     });
     return objRet;

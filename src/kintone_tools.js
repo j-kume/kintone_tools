@@ -65,25 +65,10 @@ KintoneTools.setRecordTitle = function (record, fields) {
 };  // end setRecordTitle
 
 // =============================================
-// lookupKey生成
-// =============================================
-KintoneTools.createLookupKey = function (record, fields) {
-    let retStr = '';
-
-    fields.forEach(function(val) {
-        if (record[val].value) {
-            retStr += (record[val].value + ' ');
-        }
-    });
-    retStr = retStr.slice(0, -1);
-    return retStr;
-};  // end createLookupKey
-
-// =============================================
 // 画面情報にlookupKeyをセット
 // =============================================
 KintoneTools.setLookupKey = function (record, fields) {
-    record.lookup_key.value = KintoneTools.createLookupKey(record, fields);
+    record.lookup_key.value = KintoneTools.joinFieldValue(record, fields);
 };  // end setLookupKey
 
 // =============================================

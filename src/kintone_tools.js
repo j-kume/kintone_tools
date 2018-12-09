@@ -102,6 +102,22 @@ KintoneTools.setLookupKey = function (record, fields) {
 };  // end setLookupKey
 
 // =============================================
+// 指定フィールド値結合
+// =============================================
+KintoneTools.joinFieldValue = function (record, fields, delimiter) {
+    let strDelimiter = delimiter || ' ';
+    let retStr = '';
+
+    fields.forEach(function(val) {
+        if (record[val].value) {
+            retStr += (record[val].value + strDelimiter);
+        }
+    });
+    retStr = retStr.slice(0, -1);
+    return retStr;
+};  // end joinFieldValue
+
+// =============================================
 // 数値を3桁カンマ区切りにする
 // =============================================
 KintoneTools.commaSeparate = function(num){

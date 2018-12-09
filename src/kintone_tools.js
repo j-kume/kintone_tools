@@ -58,25 +58,10 @@ KintoneTools.setNextUid = function (record, records) {
 };  // end setNextUid
 
 // =============================================
-// レコードタイトル生成
-// =============================================
-KintoneTools.createRecordTitle = function (record, fields) {
-    let retStr = '';
-
-    fields.forEach(function(val) {
-        if (record[val].value) {
-            retStr += (record[val].value + ' ');
-        }
-    });
-    retStr = retStr.slice(0, -1);
-    return retStr;
-};  // end createRecordTitle
-
-// =============================================
 // 画面情報にレコードタイトルをセット
 // =============================================
 KintoneTools.setRecordTitle = function (record, fields) {
-    record.record_title.value = KintoneTools.createRecordTitle(record, fields);
+    record.record_title.value = KintoneTools.joinFieldValue(record, fields);
 };  // end setRecordTitle
 
 // =============================================

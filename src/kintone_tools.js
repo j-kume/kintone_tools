@@ -7,12 +7,12 @@
 //  Copyright (c) 2018 kintone lovers
 //=============================================================================
 
-var kintoneTools = kintoneTools || {};
+var KintoneTools = KintoneTools || {};
 
 // =============================================
 // 定数
 // =============================================
-kintoneTools.const = {
+KintoneTools.const = {
     "round": {
         "round": 0,
         "ceil": 1,
@@ -23,26 +23,26 @@ kintoneTools.const = {
 // =============================================
 // Uniq番号生成
 // =============================================
-kintoneTools.createUniqNumber = function () {
-    return Number(new Date().getTime().toString() + kintoneTools.padding(Math.floor(Math.random() * 1000), 3));
+KintoneTools.createUniqNumber = function () {
+    return Number(new Date().getTime().toString() + KintoneTools.padding(Math.floor(Math.random() * 1000), 3));
 };  // end createUniqNumber
 
 // =============================================
 // 指定したフィールドの
 // カウントアップ＆ゼロ埋めした値の生成
 // =============================================
-kintoneTools.createZeroFillNextValue = function (records, field, len) {
+KintoneTools.createZeroFillNextValue = function (records, field, len) {
     var nextVal = 1;
     if (records.length !== 0) {
         nextVal = Number(records[0][field].value) + 1;
     }
-    return kintoneTools.padding(nextVal, len);
+    return KintoneTools.padding(nextVal, len);
 };  // end createZeroFillNextValue
 
 // =============================================
 // 次のuid生成
 // =============================================
-kintoneTools.createNextUid = function (records) {
+KintoneTools.createNextUid = function (records) {
     var nextUid = 1;
     if (records.length !== 0) {
         nextUid = Number(records[0].uid.value) + 1;
@@ -53,14 +53,14 @@ kintoneTools.createNextUid = function (records) {
 // =============================================
 // 画面情報に次のuidをセットする
 // =============================================
-kintoneTools.setNextUid = function (record, records) {
-    record.uid.value = kintoneTools.createNextUid(records);
+KintoneTools.setNextUid = function (record, records) {
+    record.uid.value = KintoneTools.createNextUid(records);
 };  // end setNextUid
 
 // =============================================
 // レコードタイトル生成
 // =============================================
-kintoneTools.createRecordTitle = function (record, fields) {
+KintoneTools.createRecordTitle = function (record, fields) {
     var retStr = '';
 
     fields.forEach(function(val) {
@@ -75,14 +75,14 @@ kintoneTools.createRecordTitle = function (record, fields) {
 // =============================================
 // 画面情報にレコードタイトルをセット
 // =============================================
-kintoneTools.setRecordTitle = function (record, fields) {
-    record.record_title.value = kintoneTools.createRecordTitle(record, fields);
+KintoneTools.setRecordTitle = function (record, fields) {
+    record.record_title.value = KintoneTools.createRecordTitle(record, fields);
 };  // end setRecordTitle
 
 // =============================================
 // lookupKey生成
 // =============================================
-kintoneTools.createLookupKey = function (record, fields) {
+KintoneTools.createLookupKey = function (record, fields) {
     var retStr = '';
 
     fields.forEach(function(val) {
@@ -97,14 +97,14 @@ kintoneTools.createLookupKey = function (record, fields) {
 // =============================================
 // 画面情報にlookupKeyをセット
 // =============================================
-kintoneTools.setLookupKey = function (record, fields) {
-    record.lookup_key.value = kintoneTools.createLookupKey(record, fields);
+KintoneTools.setLookupKey = function (record, fields) {
+    record.lookup_key.value = KintoneTools.createLookupKey(record, fields);
 };  // end setLookupKey
 
 // =============================================
 // 数値を3桁カンマ区切りにする
 // =============================================
-kintoneTools.commaSeparate = function(num){
+KintoneTools.commaSeparate = function(num){
     return String(num).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
 }; // end commaSeparate
 
@@ -114,7 +114,7 @@ kintoneTools.commaSeparate = function(num){
 // fillStrが未入力の場合には、
 // 「0」でパディングする
 // =============================================
-kintoneTools.padding = function(num, len, fillStr){
+KintoneTools.padding = function(num, len, fillStr){
     var str = fillStr || '0';
     var base = str.repeat(len);
     return (base + num).slice(-1 * len);
@@ -125,22 +125,22 @@ kintoneTools.padding = function(num, len, fillStr){
 // ---------------------------------------------
 // num を 10^digit位に丸める。
 // 丸め方は type で指定
-// type：kintoneTools.const.round にて指定
+// type：KintoneTools.const.round にて指定
 // =============================================
-kintoneTools.rounding = function(num, type, digit){
+KintoneTools.rounding = function(num, type, digit){
     
     digit = digit * -1 || 0;
 
     var ret = num * Math.pow(10, digit);
         
     switch (type) {
-        case kintoneTools.const.round.round:
+        case KintoneTools.const.round.round:
             ret = Math.round(ret);
             break;
-        case kintoneTools.const.round.ceil:
+        case KintoneTools.const.round.ceil:
             ret = Math.ceil(ret);
             break;
-        case kintoneTools.const.round.floor:
+        case KintoneTools.const.round.floor:
             ret = Math.floor(ret);
             break;
         default:
@@ -157,7 +157,7 @@ kintoneTools.rounding = function(num, type, digit){
 // =============================================
 // クエリパラメータから値取得
 // =============================================
-kintoneTools.getQueryToObject = function(strParam){
+KintoneTools.getQueryToObject = function(strParam){
     var objRet = {};
     var aryParams = strParam.split('&');
     aryParams.forEach(function(val){

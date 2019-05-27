@@ -160,6 +160,19 @@ KintoneTools.getQueryToObject = function(strParam){
     return objRet;
 }; // end getQueryToObject
 
+// =============================================
+// 現在開いているアプリのIDの取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getThisAppId = function(){
+    let thisAppId = -1;
+    if (kintone.app.getId() != null) {
+        thisAppId = kintone.app.getId();
+    }
+    if (kintone.mobile.app.getId() != null) {
+        thisAppId = kintone.mobile.app.getId();
+    }
+    return thisAppId;
+}; // end getThisAppId
 
 // #############################################
 // Add repeat method to String Class for IE

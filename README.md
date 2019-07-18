@@ -26,6 +26,9 @@
   * クエリパラメータから値取得
 * getThisAppId
   * 現在のアプリのIDの取得(PC・モバイル 不問)
+* String.prototype.repeat
+  * repeatメソッドの追加(IE向け)
+  * 同じ文字列を繰り返す
 
 
 # 定数

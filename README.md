@@ -1,5 +1,33 @@
 # kintone_tools
 
+# 概要
+
+* createUniqNumber
+  * 16桁のランダムな数値を生成
+* createZeroFillNextValue
+  * 指定したフィールドのカウントアップ＆ゼロ埋めした値の生成
+* createNextUid
+  * 次のuid生成
+* setNextUid
+  * 画面情報に次のuidをセットする
+* setRecordTitle
+  * 画面情報にレコードタイトルをセット
+* setLookupKey
+  * 画面情報にlookup_Keyをセット
+* joinFieldValue
+  * 指定フィールド値結合
+* commaSeparate
+  * 数値を3桁カンマ区切りにする
+* padding
+  * パディング
+* rounding
+  * 丸め処理
+* getQueryToObject
+  * クエリパラメータから値取得
+* getThisAppId
+  * 現在のアプリのIDの取得(PC・モバイル 不問)
+
+
 # 定数
 ## KintoneTools.const.round
 

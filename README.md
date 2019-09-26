@@ -26,6 +26,8 @@
   * クエリパラメータから値取得
 * getThisAppId
   * 現在のアプリのIDの取得(PC・モバイル 不問)
+* getAge
+  * 現在日付から年齢を計算
 * String.prototype.repeat
   * repeatメソッドの追加(IE向け)
   * 同じ文字列を繰り返す
@@ -284,6 +286,26 @@
 ```
 なし
 ```
+
+### Response
+```
+数値
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getAge()
+* 現在日付から年齢を計算
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| strDate | String | Yes | 日付(YYYY-MM-DD形式) |
 
 ### Response
 ```

@@ -174,6 +174,33 @@ KintoneTools.getThisAppId = function(){
     return thisAppId;
 }; // end getThisAppId
 
+// =============================================
+// 現在日付から年齢を計算
+// =============================================
+KintoneTools.getAge = function(bd){
+    let age = -1;
+
+    // 誕生年月日
+    let arrBd = bd.split('-');
+    let birthday  = new Date(arrBd[0], (arrBd[1] - 1), arrBd[2]);
+
+    // 今日
+    let today = new Date();
+
+    // 今年の誕生日
+    let thisYearBirthday = new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate());
+
+    // 今年 - 誕生年
+    age = today.getFullYear() - birthday.getFullYear();
+
+    // 今年の誕生日を迎えていなければ-1する
+    if (today < thisYearBirthday) {
+        age--;
+    }
+
+    return age;
+}; // end getAge
+
 // #############################################
 // Add repeat method to String Class for IE
 // #############################################

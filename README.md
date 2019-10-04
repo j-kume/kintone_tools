@@ -11,9 +11,13 @@
 * setNextUid
   * 画面情報に次のuidをセットする
 * setRecordTitle
-  * 画面情報にレコードタイトルをセット
+  * 画面情報にレコードタイトルをフィールドコードを元にセット
+* setRecordTitleByValue
+  * 画面情報にレコードタイトルに値を直接セット
 * setLookupKey
-  * 画面情報にlookup_Keyをセット
+  * 画面情報にlookup_Keyをフィールドコードを元にセット
+* setLookupKeyByValue
+  * 画面情報にlookup_Keyに値を直接セット
 * joinFieldValue
   * 指定フィールド値結合
 * commaSeparate
@@ -129,7 +133,7 @@
 
 
 ## KintoneTools.setRecordTitle(record, fields)
-* 画面情報にレコードタイトルをセット
+* 画面情報にレコードタイトルをフィールドコードを元にセット
 
 ### Parameter 
 | 引数名 | 種類 | 必須 | 詳細
@@ -149,14 +153,58 @@
 
 
 
+## KintoneTools.setRecordTitleByValue(record, values, delimiter)
+* 画面情報にレコードタイトルに値を直接セット
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| record | Object | Yes | 画面情報 |
+| values | Array | Yes | レコードタイトルを構成する文字列 |
+| delimiter | String | No | 結合文字列 |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
 ## KintoneTools.setLookupKey(record, fields)
-* 画面情報にlookup_Keyをセット
+* 画面情報にlookup_Keyをフィールドコードを元にセット
 
 ### Parameter 
 | 引数名 | 種類 | 必須 | 詳細
 |:-----------|:------------:|:------------:|:------------
 | record | Object | Yes | 画面情報 |
 | fields | Array | Yes | lookup_keyを構成するフィールド |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.setLookupKeyByValue(record, values, delimiter)
+* 画面情報にlookup_Keyに値を直接セット
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| record | Object | Yes | 画面情報 |
+| values | Array | Yes | lookup_keyを構成する文字列 |
+| delimiter | String | No | 結合文字列 |
 
 ### Response
 ```

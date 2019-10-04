@@ -62,7 +62,7 @@ KintoneTools.setNextUid = function (record, records) {
 };  // end setNextUid
 
 // =============================================
-// 画面情報にレコードタイトルをセット
+// 画面情報にレコードタイトルをフィールドコードを元にセット
 // ---------------------------------------------
 // Required Field : record_title
 // =============================================
@@ -71,13 +71,33 @@ KintoneTools.setRecordTitle = function (record, fields) {
 };  // end setRecordTitle
 
 // =============================================
-// 画面情報にlookup_Keyをセット
+// 画面情報にレコードタイトルに値を直接セット
+// ---------------------------------------------
+// Required Field : record_title
+// =============================================
+KintoneTools.setRecordTitleByValue = function (record, values, delimiter) {
+    let strDelimiter = delimiter || ' ';
+    record.record_title.value = values.join(strDelimiter);
+};  // end setRecordTitleByValue
+
+// =============================================
+// 画面情報にlookup_Keyをフィールドコードを元にセット
 // ---------------------------------------------
 // Required Field : lookup_key
 // =============================================
 KintoneTools.setLookupKey = function (record, fields) {
     record.lookup_key.value = KintoneTools.joinFieldValue(record, fields);
 };  // end setLookupKey
+
+// =============================================
+// 画面情報にlookup_Keyに値を直接セット
+// ---------------------------------------------
+// Required Field : lookup_key
+// =============================================
+KintoneTools.setLookupKeyByValue = function (record, values, delimiter) {
+    let strDelimiter = delimiter || ' ';
+    record.lookup_key.value = values.join(strDelimiter);
+};  // end setLookupKeyByValue
 
 // =============================================
 // 指定フィールド値結合

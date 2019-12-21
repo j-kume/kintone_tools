@@ -2,60 +2,60 @@
 
 # 概要
 
-* [createUniqNumber](#kintonetoolscreateuniqnumber)
+* [createUniqNumber](https://github.com/j-kume/kintone_tools#kintonetoolscreateuniqnumber)
   * 16桁のランダムな数値を生成
-* createZeroFillNextValue
+* [createZeroFillNextValue](https://github.com/j-kume/kintone_tools#kintonetoolscreatezerofillnextvaluerecords-field-len)
   * 指定したフィールドのカウントアップ＆ゼロ埋めした値の生成
-* createNextUid
+* [createNextUid](https://github.com/j-kume/kintone_tools#kintonetoolscreatenextuidrecords)
   * 次のuid生成
-* setNextUid
+* [setNextUid](https://github.com/j-kume/kintone_tools#kintonetoolssetnextuidrecord-records)
   * 画面情報に次のuidをセットする
-* setRecordTitle
+* [setRecordTitle](https://github.com/j-kume/kintone_tools#kintonetoolssetrecordtitlerecord-fields)
   * 画面情報にレコードタイトルをフィールドコードを元にセット
-* setRecordTitleByValue
+* [setRecordTitleByValue](https://github.com/j-kume/kintone_tools#kintonetoolssetrecordtitlebyvaluerecord-values-delimiter)
   * 画面情報にレコードタイトルに値を直接セット
-* setLookupKey
+* [setLookupKey](https://github.com/j-kume/kintone_tools#kintonetoolssetlookupkeyrecord-fields)
   * 画面情報にlookup_Keyをフィールドコードを元にセット
-* setLookupKeyByValue
+* [setLookupKeyByValue](https://github.com/j-kume/kintone_tools#kintonetoolssetlookupkeybyvaluerecord-values-delimiter)
   * 画面情報にlookup_Keyに値を直接セット
-* joinFieldValue
+* [joinFieldValue](https://github.com/j-kume/kintone_tools#kintonetoolsjoinfieldvaluerecord-fields-delimiter)
   * 指定フィールド値結合
-* commaSeparate
+* [commaSeparate](https://github.com/j-kume/kintone_tools#kintonetoolscommaseparatenum)
   * 数値を3桁カンマ区切りにする
-* padding
+* [padding](https://github.com/j-kume/kintone_tools#kintonetoolspaddingnum-len-fillstr)
   * パディング
-* rounding
+* [rounding](https://github.com/j-kume/kintone_tools#kintonetoolsroundingnum-type-digit)
   * 丸め処理
-* getQueryToObject
+* [getQueryToObject](https://github.com/j-kume/kintone_tools#kintonetoolsgetquerytoobjectstrparam)
   * クエリパラメータから値取得
-* getId
+* [getId](https://github.com/j-kume/kintone_tools#kintonetoolsgetid)
   * 現在のアプリのIDの取得(PC・モバイル 不問)
-* getThisAppId
+* [getThisAppId](https://github.com/j-kume/kintone_tools#kintonetoolsgetthisappid)
   * 非推奨 deprecated
   * 現在のアプリのIDの取得(PC・モバイル 不問)
-* getSpaceElement
+* [getSpaceElement](https://github.com/j-kume/kintone_tools#kintonetoolsgetspaceelementid)
   * スペースフィールドの要素の取得(PC・モバイル 不問)
-* getRelatedRecordsTargetAppId
+* [getRelatedRecordsTargetAppId](https://github.com/j-kume/kintone_tools#kintonetoolsgetrelatedrecordstargetappidfieldcode)
   * 関連レコード一覧の参照先のアプリIDを取得(PC・モバイル 不問)
-* getLookupTargetAppId
+* [getLookupTargetAppId](https://github.com/j-kume/kintone_tools#kintonetoolsgetlookuptargetappidfieldcode)
   * ルックアップフィールドの参照先のアプリIDを取得(PC・モバイル 不問)
-* getRecord
+* [getRecord](https://github.com/j-kume/kintone_tools#kintonetoolsgetrecord)
   * レコードの値を取得(PC・モバイル 不問)
-* setRecord
+* [setRecord](https://github.com/j-kume/kintone_tools#kintonetoolssetrecordobjrecord)
   * レコードに値をセットする(PC・モバイル 不問)
-* getQueryCondition
+* [getQueryCondition](https://github.com/j-kume/kintone_tools#kintonetoolsgetquerycondition)
   * レコード一覧のクエリ文字列を取得(PC・モバイル 不問)
-* getQuery
+* [getQuery](https://github.com/j-kume/kintone_tools#kintonetoolsgetquery)
   * レコード一覧のオプション付きクエリ文字列を取得(PC・モバイル 不問)
-* getContentSpaceElement
+* [getContentSpaceElement](https://github.com/j-kume/kintone_tools#kintonetoolsgetcontentspaceelement)
   * ポータルの上側の空白部分の要素を取得(PC・モバイル 不問)
-* isPcMode
+* [isPcMode](https://github.com/j-kume/kintone_tools#kintonetoolsispcmode)
   * PCモード判定
-* isMobileMode
+* [isMobileMode](https://github.com/j-kume/kintone_tools#kintonetoolsismobilemode)
   * MOBILEモード判定
-* getAge
+* [getAge](https://github.com/j-kume/kintone_tools#kintonetoolsgetage)
   * 現在日付から年齢を計算
-* String.prototype.repeat
+* [String.prototype.repeat](https://github.com/j-kume/kintone_tools#stringprototyperepeatlen)
   * repeatメソッドの追加(IE向け)
   * 同じ文字列を繰り返す
 

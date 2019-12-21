@@ -28,8 +28,41 @@
   * 丸め処理
 * getQueryToObject
   * クエリパラメータから値取得
-* getThisAppId
+* getId
   * 現在のアプリのIDの取得(PC・モバイル 不問)
+* getThisAppId
+  * 非推奨 deprecated
+  * 現在のアプリのIDの取得(PC・モバイル 不問)
+
+
+* getSpaceElement
+  * スペースフィールドの要素の取得(PC・モバイル 不問)
+* getRelatedRecordsTargetAppId
+  * 関連レコード一覧の参照先のアプリIDを取得(PC・モバイル 不問)
+* getLookupTargetAppId
+  * ルックアップフィールドの参照先のアプリIDを取得(PC・モバイル 不問)
+* getRecord
+  * レコードの値を取得(PC・モバイル 不問)
+* setRecord
+  * レコードに値をセットする(PC・モバイル 不問)
+* getQueryCondition
+  * レコード一覧のクエリ文字列を取得(PC・モバイル 不問)
+* getQuery
+  * レコード一覧のオプション付きクエリ文字列を取得(PC・モバイル 不問)
+* getContentSpaceElement
+  * ポータルの上側の空白部分の要素を取得(PC・モバイル 不問)
+* isPcMode
+  * PCモード判定
+* isMobileMode
+  * MOBILEモード判定
+
+
+
+
+
+
+
+
 * getAge
   * 現在日付から年齢を計算
 * String.prototype.repeat
@@ -326,7 +359,7 @@
 
 
 
-## KintoneTools.getThisAppId()
+## KintoneTools.getId()
 * 現在開いているアプリのIDの取得
 * PC・モバイル 不問
 
@@ -338,6 +371,246 @@
 ### Response
 ```
 数値
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getThisAppId()
+* 現在開いているアプリのIDの取得
+* PC・モバイル 不問
+* 非推奨 deprecated
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+数値
+```
+
+### Sample
+```js
+
+```
+
+
+
+
+
+
+
+
+
+
+
+## KintoneTools.getSpaceElement(id)
+* スペースフィールドの要素の取得
+* PC・モバイル 不問
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| id | String | Yes | スペースフィールドに付与しているID |
+
+### Response
+```
+HTMLオブジェクト div
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getRelatedRecordsTargetAppId(fieldCode)
+* 関連レコード一覧の参照先のアプリIDを取得
+* PC・モバイル 不問
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| fieldCode | String | Yes | 対象フィールドのフィールドコード |
+
+### Response
+```
+数値
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getLookupTargetAppId(fieldCode)
+* ルックアップフィールドの参照先のアプリIDを取得
+* PC・モバイル 不問
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| fieldCode | String | Yes | 対象フィールドのフィールドコード |
+
+### Response
+```
+数値
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getRecord()
+* レコードの値を取得
+* PC・モバイル 不問
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+レコードオブジェクト
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.setRecord(objRecord)
+* レコードに値をセットする
+* PC・モバイル 不問
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| objRecord | Object | Yes | レコードオブジェクト |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getQueryCondition()
+* レコード一覧のクエリ文字列を取得
+* PC・モバイル 不問
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+文字列 クエリ文字列
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getQuery()
+* レコード一覧のオプション付きクエリ文字列を取得
+* PC・モバイル 不問
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+文字列 オプション付きクエリ文字列
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.getContentSpaceElement()
+* ポータルの上側の空白部分の要素を取得
+* PC・モバイル 不問
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+HTMLオブジェクト div
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.isPcMode()
+* PCモード判定
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+boolean
+true: PCモードである / false: PCモードではない
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.isMobileMode()
+* MOBILEモード判定
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+boolean
+true: モバイルモードである / false: モバイルモードではない
 ```
 
 ### Sample

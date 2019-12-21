@@ -1,5 +1,8 @@
 # kintone_tools
 
+# 使用上の注意点
+* kintoneシステム管理内とアプリ内の「JavaScript / CSSでカスタマイズ」の両方同時には**入れない**ようにしてください。
+
 # 概要
 
 * [createUniqNumber](https://github.com/j-kume/kintone_tools#kintonetoolscreateuniqnumber)

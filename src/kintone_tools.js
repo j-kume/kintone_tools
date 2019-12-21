@@ -1,8 +1,6 @@
 //=============================================================================
 //【ファイル名】
 //    kintone_tools.js
-//【タイプ】
-//    ●PC用 / ○スマートフォン用
 //-----------------------------------------------------------------------------
 //  Copyright (c) 2018 kintone lovers
 //=============================================================================
@@ -183,16 +181,155 @@ KintoneTools.getQueryToObject = function(strParam){
 // =============================================
 // 現在開いているアプリのIDの取得(PC・モバイル 不問)
 // =============================================
+KintoneTools.getId = function(){
+    return KintoneTools.getThisAppId();
+}
+// =============================================
+// 現在開いているアプリのIDの取得(PC・モバイル 不問)
+// [deprecated]
+// =============================================
 KintoneTools.getThisAppId = function(){
     let thisAppId = -1;
-    if (kintone.app.getId() != null) {
+    if (KintoneTools.isPcMode()) {
         thisAppId = kintone.app.getId();
     }
-    if (kintone.mobile.app.getId() != null) {
+    if (KintoneTools.isMobileMode()) {
         thisAppId = kintone.mobile.app.getId();
     }
     return thisAppId;
 }; // end getThisAppId
+
+// =============================================
+// スペースフィールドの要素の取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getSpaceElement = function(id){
+    let elm = null;
+    if (KintoneTools.isPcMode()) {
+        elm = kintone.app.record.getSpaceElement(id);
+    }
+    if (KintoneTools.isMobileMode()) {
+        elm = kintone.mobile.app.record.getSpaceElement(id);
+    }
+    return elm;
+}; // end getSpaceElement
+
+// =============================================
+// 関連レコード一覧の参照先のアプリIDを取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getRelatedRecordsTargetAppId = function(fieldCode){
+    let appId = -1;
+    if (KintoneTools.isPcMode()) {
+        appId = kintone.app.getRelatedRecordsTargetAppId(fieldCode);
+    }
+    if (KintoneTools.isMobileMode()) {
+        appId = kintone.mobile.app.getRelatedRecordsTargetAppId(fieldCode);
+    }
+    return appId;
+}; // end getRelatedRecordsTargetAppId
+
+// =============================================
+// ルックアップフィールドの参照先のアプリIDを取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getLookupTargetAppId = function(fieldCode){
+    let appId = -1;
+    if (KintoneTools.isPcMode()) {
+        appId = kintone.app.getLookupTargetAppId(fieldCode);
+    }
+    if (KintoneTools.isMobileMode()) {
+        appId = kintone.mobile.app.getLookupTargetAppId(fieldCode);
+    }
+    return appId;
+}; // end getLookupTargetAppId
+
+// =============================================
+// レコードの値を取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getRecord = function(){
+    let objRecord = null;
+    if (KintoneTools.isPcMode()) {
+        objRecord = kintone.app.record.get();
+    }
+    if (KintoneTools.isMobileMode()) {
+        objRecord = kintone.mobile.app.record.get();
+    }
+    return objRecord;
+}; // end getRecord
+
+// =============================================
+// レコードに値をセットする(PC・モバイル 不問)
+// =============================================
+KintoneTools.setRecord = function(objRecord){
+    if (KintoneTools.isPcMode()) {
+        kintone.app.record.set(objRecord);
+    }
+    if (KintoneTools.isMobileMode()) {
+        kintone.mobile.app.record.set(objRecord);
+    }
+}; // end setRecord
+
+// =============================================
+// レコード一覧のクエリ文字列を取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getQueryCondition = function(){
+    let condition = null;
+    if (KintoneTools.isPcMode()) {
+        condition = kintone.app.getQueryCondition();
+    }
+    if (KintoneTools.isMobileMode()) {
+        condition = kintone.mobile.app.getQueryCondition();
+    }
+    return condition;
+}; // end getQueryCondition
+
+// =============================================
+// レコード一覧のオプション付きクエリ文字列を取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getQuery = function(){
+    let query = null;
+    if (KintoneTools.isPcMode()) {
+        query = kintone.app.getQuery();
+    }
+    if (KintoneTools.isMobileMode()) {
+        query = kintone.mobile.app.getQuery();
+    }
+    return query;
+}; // end getQuery
+
+// =============================================
+// ポータルの上側の空白部分の要素を取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getContentSpaceElement = function(){
+    let elm = null;
+    if (KintoneTools.isPcMode()) {
+        elm = kintone.portal.getContentSpaceElement();
+    }
+    if (KintoneTools.isMobileMode()) {
+        elm = kintone.mobile.portal.getContentSpaceElement();
+    }
+    return elm;
+}; // end getContentSpaceElement
+
+// =============================================
+// PCモード判定
+// =============================================
+KintoneTools.isPcMode = function(){
+    let ret = false;
+    if (kintone.app.getId() != null || kintone.portal.getContentSpaceElement() != null) {
+        ret = true;
+    }
+    return ret;
+}; // end isPcMode
+
+// =============================================
+// MOBILEモード判定
+// =============================================
+KintoneTools.isMobileMode = function(){
+    let ret = false;
+    if (kintone.mobile.app.getId() != null || kintone.mobile.portal.getContentSpaceElement() != null) {
+        ret = true;
+    }
+    return ret;
+}; // end isMobileMode
 
 // =============================================
 // 現在日付から年齢を計算

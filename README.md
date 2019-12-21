@@ -2,7 +2,7 @@
 
 # 概要
 
-* createUniqNumber
+* [createUniqNumber](#kintonetoolscreateuniqnumber)
   * 16桁のランダムな数値を生成
 * createZeroFillNextValue
   * 指定したフィールドのカウントアップ＆ゼロ埋めした値の生成
@@ -33,8 +33,6 @@
 * getThisAppId
   * 非推奨 deprecated
   * 現在のアプリのIDの取得(PC・モバイル 不問)
-
-
 * getSpaceElement
   * スペースフィールドの要素の取得(PC・モバイル 不問)
 * getRelatedRecordsTargetAppId
@@ -55,14 +53,6 @@
   * PCモード判定
 * isMobileMode
   * MOBILEモード判定
-
-
-
-
-
-
-
-
 * getAge
   * 現在日付から年齢を計算
 * String.prototype.repeat

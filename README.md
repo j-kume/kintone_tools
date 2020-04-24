@@ -58,6 +58,10 @@
   * MOBILEモード判定
 * [getAge](https://github.com/j-kume/kintone_tools#kintonetoolsgetage)
   * 現在日付から年齢を計算
+* [getIds](https://github.com/j-kume/kintone_tools#getIds)
+  * クエリ内容に応じたidを配列で取得
+* [log2kintone](https://github.com/j-kume/kintone_tools#log2kintone)
+  * エラーログアプリにデータ登録
 * [String.prototype.repeat](https://github.com/j-kume/kintone_tools#stringprototyperepeatlen)
   * repeatメソッドの追加(IE向け)
   * 同じ文字列を繰り返す
@@ -629,6 +633,55 @@ true: モバイルモードである / false: モバイルモードではない
 ### Sample
 ```js
 
+```
+
+
+
+## KintoneTools.getIds()
+* クエリ内容に応じたidを配列で取得
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| appId | Number | Yes |  |
+| condition | String | No |  |
+| orderBy | String | No |  |
+| guestSpaceId | Number | No |  |
+
+### Response
+```
+数値の配列
+```
+
+### Sample
+```js
+
+```
+
+
+
+## KintoneTools.log2kintone()
+* エラーログアプリにデータ登録
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| objError.appId | Number | Yes | エラーログアプリID |
+| objError.message | String | No | エラーメッセージ |
+| objError.object | String | No | エラーオブジェクトをJSON.stringfy()したもの |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+KintoneTools.log2kintone({
+    "appId": 999,
+    "message": error.message,
+    "object": JSON.stringify(error)
+});
 ```
 
 

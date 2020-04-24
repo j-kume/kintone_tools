@@ -358,6 +358,72 @@ KintoneTools.getAge = function(bd){
     return age;
 }; // end getAge
 
+// =============================================
+// クエリ内容に応じたidを配列で取得
+// =============================================
+KintoneTools.getIds = async (appId, condition, orderBy, guestSpaceId) => {
+    const aryRet = [];
+
+    const client_param = {};
+    if (guestSpaceId) {client_param.guestSpaceId = guestSpaceId;}
+
+    try {
+        const client = new KintoneRestAPIClient(client_param);
+        const resp = await client.record.getAllRecords({
+            "app": appId,
+            "fields": ["$id"],
+            "condition": condition ? condition : '',
+            "orderBy": orderBy ? orderBy : ''
+        }).then(function(resp) {
+            // console.log(resp);
+            return resp;
+        }).catch(function(error) {
+            console.log(error);
+            return Promise.reject(new Error('GET : ' + appId + ' / ' + error.message));
+        });
+        console.log(resp);
+        resp.map(val => val.$id.value).forEach(val => aryRet.push(Number(val)));
+    } catch (error) {
+        console.log(error);
+    } finally {
+        return aryRet;
+    }
+}; // end getIds
+
+// =============================================
+// エラーログアプリにデータ登録
+// ---------------------------------------------
+// objError.appId   : エラーログアプリのアプリID
+// objError.message : エラーメッセージ
+// objError.object  : エラーオブジェクトをJSON.stringfy()したもの
+// =============================================
+KintoneTools.log2kintone = async (objError) => {
+    try {
+        const client = new KintoneRestAPIClient();
+        const resp = await client.record.addRecord({
+            "app": objError.appId,
+            "record": {
+                "エラーメッセージ": {value: objError.message},
+                "エラーオブジェクト": {value: objError.object},
+                "stack_trace": {value: (function() {
+                    const obj = {};
+                    Error.captureStackTrace(obj, arguments.callee);
+                    return obj.stack;
+                })()}
+            }
+        }).then(function(resp) {
+            console.log(resp);
+            return resp;
+        }).catch(function(error) {
+            console.log(error);
+            return Promise.reject(new Error('POST : ' + objError.appId + ' / ' + error.message));
+        });
+        console.log(resp);
+    } catch (error) {
+        console.log(error);
+    }
+}; // end log2kintone
+
 // #############################################
 // Add repeat method to String Class for IE
 // #############################################

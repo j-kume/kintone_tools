@@ -409,7 +409,8 @@ KintoneTools.log2kintone = async (objError) => {
                     const obj = {};
                     Error.captureStackTrace(obj, arguments.callee);
                     return obj.stack;
-                })()}
+                })()},
+                "マーク":{value: objError.mark}
             }
         }).then(function(resp) {
             console.log(resp);

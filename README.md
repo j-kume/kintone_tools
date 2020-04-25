@@ -669,6 +669,7 @@ true: モバイルモードである / false: モバイルモードではない
 | objError.appId | Number | Yes | エラーログアプリID |
 | objError.message | String | No | エラーメッセージ |
 | objError.object | String | No | エラーオブジェクトをJSON.stringfy()したもの |
+| objError.mark | String | No |  |
 
 ### Response
 ```

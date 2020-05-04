@@ -439,6 +439,58 @@ KintoneTools.log2kintone = async (objError) => {
     }
 }; // end log2kintone
 
+//----------------------------
+// コンソールログ出力
+//----------------------------
+KintoneTools.outputLog = (msg, mode) => {
+    let _msg = msg || "";
+    let _mode = mode || true;
+    if (_mode) {
+        let now = new Date();
+        let year = now.getFullYear();
+        let month = ('00' + (Number(now.getMonth()) + 1)).slice(-2);
+        let date = ('00' + now.getDate()).slice(-2);
+        let hour = ('00' + now.getHours()).slice(-2);
+        let min = ('00' + now.getMinutes()).slice(-2);
+        let sec = ('00' + now.getSeconds()).slice(-2);
+        let msec = ('000' + now.getMilliseconds()).slice(-3);
+        console.log("[" + year + "/" + month + "/" + date + " " + hour + ":" + min + ":" + sec + ":" + msec + "] " + _msg);
+    }
+}
+
+//----------------------------
+// 経過時間出力
+//----------------------------
+KintoneTools.duration = {
+    start: (label, mode) => {
+        let _label = label || "";
+        let _mode = mode || true;
+        if (_mode) {
+            KintoneTools.outputLog(_label + ':start');
+            performance.mark(_label + ':start');
+        }
+    },
+    end: (label, mode) => {
+        let _label = label || "";
+        let _mode = mode || true;
+        if (_mode) {
+            performance.mark(_label + ':end');
+            performance.measure(_label, _label + ':start', _label + ':end');
+        }
+    },
+    output: (mode) => {
+        let _mode = mode || true;
+        if (_mode) {
+            let entries = performance.getEntriesByType("measure");
+            for (let i = 0; i < entries.length; i++) {
+                console.log(entries[i].name + ' : ' + entries[i].duration);
+            }
+            performance.clearMarks();
+            performance.clearMeasures();
+        }
+    }
+};
+
 // #############################################
 // Add repeat method to String Class for IE
 // #############################################

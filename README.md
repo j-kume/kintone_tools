@@ -50,6 +50,8 @@
   * レコード一覧のクエリ文字列を取得(PC・モバイル 不問)
 * [getQuery](https://github.com/j-kume/kintone_tools#kintonetoolsgetquery)
   * レコード一覧のオプション付きクエリ文字列を取得(PC・モバイル 不問)
+* [getHeaderSpaceElement](https://github.com/j-kume/kintone_tools#kintonetoolsgetheaderspaceelement)
+  * メニューの下側の空白部分の要素を取得(PC・モバイル 不問)
 * [getContentSpaceElement](https://github.com/j-kume/kintone_tools#kintonetoolsgetcontentspaceelement)
   * ポータルの上側の空白部分の要素を取得(PC・モバイル 不問)
 * [isPcMode](https://github.com/j-kume/kintone_tools#kintonetoolsispcmode)
@@ -58,10 +60,18 @@
   * MOBILEモード判定
 * [getAge](https://github.com/j-kume/kintone_tools#kintonetoolsgetage)
   * 現在日付から年齢を計算
-* [getIds](https://github.com/j-kume/kintone_tools#getIds)
+* [getIds](https://github.com/j-kume/kintone_tools#kintonetoolsgetIds)
   * クエリ内容に応じたidを配列で取得
-* [log2kintone](https://github.com/j-kume/kintone_tools#log2kintone)
+* [log2kintone](https://github.com/j-kume/kintone_tools#kintonetoolslog2kintone)
   * エラーログアプリにデータ登録
+* [outputLog](https://github.com/j-kume/kintone_tools#kintonetoolsoutputlog)
+  * コンソールログ出力
+* [duration.start](https://github.com/j-kume/kintone_tools#kintonetoolsdurationstart)
+  * 経過時間記録開始
+* [duration.end](https://github.com/j-kume/kintone_tools#kintonetoolsdurationend)
+  * 経過時間記録終了
+* [duration.output](https://github.com/j-kume/kintone_tools#kintonetoolsdurationoutput)
+  * 経過時間出力
 * [String.prototype.repeat](https://github.com/j-kume/kintone_tools#stringprototyperepeatlen)
   * repeatメソッドの追加(IE向け)
   * 同じ文字列を繰り返す
@@ -554,6 +564,27 @@ HTMLオブジェクト div
 
 
 
+## KintoneTools.getHeaderSpaceElement()
+* メニューの下側の空白部分の要素を取得
+* PC・モバイル 不問
+
+### Parameter 
+```
+なし
+```
+
+### Response
+```
+HTMLオブジェクト div
+```
+
+### Sample
+```js
+
+```
+
+
+
 ## KintoneTools.getContentSpaceElement()
 * ポータルの上側の空白部分の要素を取得
 * PC・モバイル 不問
@@ -683,6 +714,92 @@ KintoneTools.log2kintone({
     "message": error.message,
     "object": JSON.stringify(error)
 });
+```
+
+
+
+## KintoneTools.outputLog()
+* コンソールログ出力
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| msg | String | No | メッセージ |
+| mode | Boolean | No | 出力モード(true: 出力する / false: 出力しない) |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
+
+## KintoneTools.duration.start()
+* 経過時間記録開始
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| label | String | No | ラベル |
+| mode | Boolean | No | 出力モード(true: 出力する / false: 出力しない) |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
+
+## KintoneTools.duration.end()
+* 経過時間記録終了
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| label | String | No | ラベル |
+| mode | Boolean | No | 出力モード(true: 出力する / false: 出力しない) |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
+```
+
+
+
+
+## KintoneTools.duration.output()
+* 経過時間出力
+
+### Parameter 
+| 引数名 | 種類 | 必須 | 詳細
+|:-----------|:------------:|:------------:|:------------
+| mode | Boolean | No | 出力モード(true: 出力する / false: 出力しない) |
+
+### Response
+```
+なし
+```
+
+### Sample
+```js
+
 ```
 
 

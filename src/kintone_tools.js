@@ -296,6 +296,20 @@ KintoneTools.getQuery = function(){
 }; // end getQuery
 
 // =============================================
+// メニューの下側の空白部分の要素を取得(PC・モバイル 不問)
+// =============================================
+KintoneTools.getHeaderSpaceElement = function(){
+    let elm = null;
+    if (KintoneTools.isPcMode()) {
+        elm = kintone.app.getHeaderSpaceElement();
+    }
+    if (KintoneTools.isMobileMode()) {
+        elm = kintone.mobile.app.getHeaderSpaceElement();
+    }
+    return elm;
+}; // end getHeaderSpaceElement
+
+// =============================================
 // ポータルの上側の空白部分の要素を取得(PC・モバイル 不問)
 // =============================================
 KintoneTools.getContentSpaceElement = function(){
